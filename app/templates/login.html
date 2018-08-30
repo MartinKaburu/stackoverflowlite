@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="../static/style.css">
+<script src="../static/login.js"></script>
+<!--Try make this responsive-->
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<body>
+  <div class="my-page">
+    <div class="left">
+      <form name='signupForm' class="form signup animated bounceInLeft">
+          <h1>Sign Up</h1>
+          <hr>
+          <div class="field-wrap">
+            <label>
+              Username
+            </label>
+            <input type="text" name="username" required autocomplete="off" />
+          </div>
+          <div class="field-wrap">
+            <label>
+              Email
+            </label>
+            <input type="email" name="email" required autocomplete="on"/>
+          </div>
+          <div class="field-wrap">
+            <label>
+              Password
+            </label>
+            <input type="password" name="password" required autocomplete="off"/>
+          </div>
+        <div class="field-wrap">
+          <button type="submit" class="button" onclick="submitSignup();">Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="right">
+      <form name='loginForm' id='login' class="form login animated bounceInRight">
+          <h1>Log In</h1>
+          <hr>
+          <div class="field-wrap">
+            <label>
+              Email
+            </label>
+            <input type="email" name="email" required autocomplete="on"/>
+          </div>
+          <div class="field-wrap">
+            <label>
+              Password
+            </label>
+            <input type="password" name="password" required autocomplete="off"/>
+          </div>
+          <div class="field-wrap">
+            <label>
+              <input id="rememberme" name="rememberme" value="remember" type="checkbox" /> &nbsp;Remember me
+            </label>
+          </div>
+          <div class="field-wrap">
+            <a href="#">Forgot password?</a>
+          <button class="button" onclick="login();"/>Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
