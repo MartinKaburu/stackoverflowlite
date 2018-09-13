@@ -21,6 +21,11 @@ const showHidden = (id) => {
 
 
 const notification = (message) => {
+    try{
+        element = document.getElementById('notification')
+        element.remove()
+    }catch{
+    }
     html = `
     <p>&times; ${message} &times;</p>
     `
@@ -33,10 +38,6 @@ const notification = (message) => {
       element = document.getElementById('notification')
       element.style['-webkit-animation'] = 'fadeout 5s'
     }, 1000)
-    setTimeout(() =>{
-      element = document.getElementById('notification')
-      element.remove()
-    }, 6000)
 }
 
 
