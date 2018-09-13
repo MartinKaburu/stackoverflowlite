@@ -103,3 +103,5 @@ venv.bak/
 .mypy_cache/
 
 *.pgsql
+
+.pytest_cache/

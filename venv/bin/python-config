@@ -1,4 +1,4 @@
-#!/home/aegon/Desktop/stackoverflow_lite/venv/bin/python
+#!/home/aegon/stackoverflowlite/venv/bin/python
 
 import sys
 import getopt

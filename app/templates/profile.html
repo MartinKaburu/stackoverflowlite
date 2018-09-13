@@ -4,14 +4,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../static/style.css">
     <script src="../static/main.js"></script>
+    <script src="../static/profile.js"></script>
     <title>Stack Overflow lite</title>
   </head>
-  <body>
+  <body onload="getQuestions();">
     <nav class="nav_bar">
       <ul>
-        <li><a href="{{ url_for('index') }}">Home</a> </li>
+        <li><a href="http://127.0.0.1:5000/home">Home</a> </li>
         <li><a href="#">Profile</a> </li>
-        <li><a href="{{ url_for('get_started') }}">Log out</a> </li>
+        <li onclick="logOut();"><a href="#">Log out</a> </li>
         <li>
           <form class="search_form" action="index.html" method="post">
             <input type="text" name="search" placeholder="search...">
@@ -22,167 +23,10 @@
 
     <div class="feed">
       <div class="recent_questions animated bounce">
-        <div class="q_and_a">
+        <div class="q_and_a" id="mmm">
           <h1>My Questions</h1>
           <hr>
-        <p id="que"> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident,
-          sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-          <br>
-          Posted by <a href="#">user__001 </a><br>
-          On 13 Jun 2039</p> <button class="show_more" onclick="show_hidden('one');">Answers 30</button>
-          <form id="one" class="my_answer" action="index.html" method="post">
-            <hr>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-              <br>
-              </p>
-              <ul>
-                <li> <a href="#"><button><i class="fa fa-minus"></i> Downvote 10</button></a></li>
-                <li> <a href="#"><button><i class="fa fa-plus"></i> Upvote 20</button></a></li>
-                <li> <a href="#"><button><i class="fa fa-check"></i> Accept</button></a></li>
-              </ul>
-              <p>Answer by: <a href="#"> __user002__</a>    Date: 32 Aug 2040</p>
-            <hr>
-            <p>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-              <br>
-              </p>
-              <ul>
-                <li> <a href="#"><button><i class="fa fa-minus"></i> Downvote 10</button></a></li>
-                <li> <a href="#"><button><i class="fa fa-plus"></i> Upvote 20</button></a></li>
-                <li> <a href="#"><button><i class="fa fa-check"></i> Accept</button></a></li>
-              </ul>
-              <p>Answer by: <a href="#"> __user002__</a>    Date: 32 Aug 2040</p>
-              <hr>
-            <textarea rows="5" class="my_answer" placeholder="My answer" name='my_answer' required data-validation-required-message="Please enter an answer first"></textarea>
-            <button type="submit" class="button">Answer</button>
-          </form>
         </div>
-        <div class="q_and_a">
-          <p id="que">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-            <br>
-            Posted by <a href="#">user__001 </a><br>
-            On 13 Jun 2039</p> <button class="show_more" onclick="show_hidden('two');">Answers 25</button>
-            <form id="two" class="my_answer" action="index.html" method="post">
-              <hr>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-                <br>
-                </p>
-                <ul>
-                  <li> <a href="#"><button><i class="fa fa-minus"></i> Downvote 10</button></a></li>
-                  <li> <a href="#"><button><i class="fa fa-plus"></i> Upvote 20</button></a></li>
-                  <li> <a href="#"><button><i class="fa fa-check"></i> Accept</button></a></li>
-                </ul>
-                <p>Answer by: <a href="#"> __user002__</a>    Date: 32 Aug 2040</p>
-              <hr>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-                <br>
-                </p>
-                <ul>
-                  <li> <a href="#"><button><i class="fa fa-minus"></i> Downvote 10</button></a></li>
-                  <li> <a href="#"><button><i class="fa fa-plus"></i> Upvote 20</button></a></li>
-                  <li> <a href="#"><button><i class="fa fa-check"></i> Accept</button></a></li>
-                </ul>
-              <p>Answer by: <a href="#"> __user002__</a>    Date: 32 Aug 2040</p>
-              <hr>
-              <textarea  class="my_answer" placeholder="My answer" name='my_answer' required data-validation-required-message="Please enter an answer first"></textarea>
-              <button type="submit" class="button">Answer</button>
-            </form>
-          </div>
-          <div class="q_and_a">
-            <p id="que">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-              <br>
-              Posted by <a href="#">user__001 </a><br>
-              On 13 Jun 2039</p> <button class="show_more" onclick="show_hidden('three');">Answers 21</button>
-              <form id="three" class="my_answer" action="index.html" method="post">
-                <hr>
-                <p>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  Excepteur sint occaecat cupidatat non proident,
-                  sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-                  <br>
-                </p>
-                <ul>
-                  <li> <a href="#"><button><i class="fa fa-minus"></i> Downvote 10</button></a></li>
-                  <li> <a href="#"><button><i class="fa fa-plus"></i> Upvote 20</button></a></li>
-                  <li> <a href="#"><button><i class="fa fa-check"></i> Accept</button></a></li>
-                </ul>
-                <p>Answer by: <a href="#"> __user002__</a>    Date: 32 Aug 2040</p>
-                <hr>
-                <p>
-                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                  Excepteur sint occaecat cupidatat non proident,
-                  sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-                  <br>
-                  <ul>
-                    <li> <a href="#"><button><i class="fa fa-minus"></i> Downvote 10</button></a></li>
-                    <li> <a href="#"><button><i class="fa fa-plus"></i> Upvote 20</button></a></li>
-                    <li> <a href="#"><button><i class="fa fa-check"></i> Accept</button></a></li>
-                  </ul>
-                <p>Answer by: <a href="#"> __user002__</a>    Date: 32 Aug 2040</p>
-                </p>
-                <hr>
-                <textarea rows="5" class="my_answer" placeholder="My answer" name='my_answer' required data-validation-required-message="Please enter an answer first"></textarea>
-                <button type="submit" class="button">Answer</button>
-              </form>
-            </div>
-            <div class="q_and_a">
-              <p id="que">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-                <br>
-                Posted by <a href="#">user__001 </a><br>
-                On 13 Jun 2039</p> <button class="show_more" onclick="show_hidden('four');">Answers 14</button>
-                <form id="four" class="my_answer" action="index.html" method="post">
-                  <hr>
-                  <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident,
-                    sunt in culpa qui officia deserunt mollit anim id est laborum. <br>
-                    <br>
-                    <ul>
-                      <li> <a href="#"><button><i class="fa fa-minus"></i> Downvote 10</button></a></li>
-                      <li> <a href="#"><button><i class="fa fa-plus"></i> Upvote 20</button></a></li>
-                      <li> <a href="#"><button><i class="fa fa-check"></i> Accept</button></a></li>
-                    </ul>
-                    <p>Answer by: <a href="#"> __user002__</a>    Date: 32 Aug 2040</p>
-                  </p>
-                  <hr>
-                  <textarea class="my_answer" placeholder="My answer" name='my_answer' required data-validation-required-message="Please enter an answer first"></textarea>
-                  <button type="submit" class="button">Answer</button>
-                </form>
-              </div>
       </div>
       <div class="side_bar animated bounceInRight">
         <h2>My Recent Questions</h2>
@@ -199,7 +43,6 @@
       <form class="ask_question animated bounceInLeft" action="index.html" method="post">
         <h3>Have a question?</h3>
         <textarea rows="5" class="form-control" id="question" name='question' required data-validation-required-message="Please enter a question first"></textarea>
-        </script>
         <button type="submit" class="button">Ask</button>
       </form>
       <div class="logo animated bounceInLeft">
@@ -215,25 +58,25 @@
           <li><button type="submit" class="button">Answers Given 90</button></li>
         </ul>
       </div>
-      </div>
+    </div>
   </body>
   <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <ul class="list-inline text-center">
-          <li class="list-inline-item">
-            <a href="https://www.github.com/MartinKaburu/StackOverflow-lite">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
-        <p>Copyright &copy; StackOverflow-lite 2018</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://www.github.com/MartinKaburu/StackOverflow-lite">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p>Copyright &copy; StackOverflow-lite 2018</p>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </html>

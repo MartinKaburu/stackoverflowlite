@@ -1,7 +1,0 @@
-[
-  "test_questions.py::ApiTests::test_get_all_questions", 
-  "test_questions.py::ApiTests::test_get_specific_question", 
-  "test_questions.py::ApiTests::test_non_persistent", 
-  "test_questions.py::ApiTests::test_post_answer", 
-  "test_questions.py::ApiTests::test_post_question"
-]
