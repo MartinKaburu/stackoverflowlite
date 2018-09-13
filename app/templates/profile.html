@@ -7,7 +7,7 @@
     <script src="../static/profile.js"></script>
     <title>Stack Overflow lite</title>
   </head>
-  <body onload="getQuestions();">
+  <body onload="getMyQuestions();">
     <nav class="nav_bar">
       <ul>
         <li><a href="http://127.0.0.1:5000/home">Home</a> </li>
@@ -20,8 +20,7 @@
         </li>
       </ul>
     </nav>
-
-    <div class="feed">
+    <div class="feed" id="feed">
       <div class="recent_questions animated bounce">
         <div class="q_and_a" id="mmm">
           <h1>My Questions</h1>
@@ -40,10 +39,10 @@
           <li><a href="#"> Checkout this question story</a> </li>
         </ul>
       </div>
-      <form class="ask_question animated bounceInLeft" action="index.html" method="post">
+      <form class="ask_question animated bounceInLeft" name='askQuestion'>
         <h3>Have a question?</h3>
-        <textarea rows="5" class="form-control" id="question" name='question' required data-validation-required-message="Please enter a question first"></textarea>
-        <button type="submit" class="button">Ask</button>
+        <textarea rows="5" class="form-control" id="question" name="question"  required data-validation-required-message="Please enter a question first"></textarea>
+        <button type="submit" class="button" onclick="postQuestion();">Ask</button>
       </form>
       <div class="logo animated bounceInLeft">
         <img src="../static/img/logo.png" alt="">
