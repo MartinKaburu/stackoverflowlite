@@ -35,6 +35,7 @@ const getQuestions = async () => {
   }
 }
 
+
 const getAnswers = async (id) => {
   let url = baseURL+`questions/${id}`;
   const response = await fetch(url, {
@@ -82,7 +83,6 @@ const getAnswers = async (id) => {
       node.innerHTML += answer_question
       document.getElementById(id.toString()+'this').appendChild(node);
       showHidden(id);
-
   }else{
     let json = await response.json()
     notification(json["message"]);

@@ -35,6 +35,7 @@ const getMyQuestions = async () => {
   }
 }
 
+
 const getAnswers = async (id) => {
     let url = baseURL+`questions/${id}`;
     const response = await fetch(url, {
@@ -88,6 +89,7 @@ const getAnswers = async (id) => {
         notification(json["message"]);
     }
 }
+
 
 const accept = async (questionId, answerId) => {
   let url = baseURL+`questions/${questionId}/answers/${answerId}`;

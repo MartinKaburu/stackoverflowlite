@@ -37,7 +37,6 @@ const notification = (message) => {
       element = document.getElementById('notification')
       element.remove()
     }, 6000)
-
 }
 
 
