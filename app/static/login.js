@@ -44,10 +44,12 @@ const login = async () => {
     let url = 'http://127.0.0.1:8000/api/v1/auth/login'
     let res  = await fetch(url, {
         method: 'POST',
-        headers: {'Content-Type':'application/json'},
+        headers: {
+          'Content-Type':'application/json'
+        },
         body: JSON.stringify({
-          'email': 'email@gmail.com',
-          'password': 'kaburu',
+          'email': "mugunamartin340@gmail.com",
+          'password': "kaburu@andela",
         })
     })
     console.log(res.status);
@@ -57,8 +59,35 @@ const login = async () => {
       console.log(data);
     }else{
       console.log("failed");
-      data = await res.json()
+      data = await res.json();
       console.log(data);
     }
 
 };
+
+async function submitSignup(){
+  const signupForm = document.forms['signupForm']
+  let username = signupForm.username.value;
+  let email = signupForm.email.value;
+  let password = signupForm.password.value;
+  url = baseURL + 'auth/signup'
+  try{
+    let res = await fetch(url, {
+      method: 'POST',
+      headers: head,
+      body: JSON.stringify({
+        "username": username,
+        "email": email,
+        "password": password
+      })
+    })
+    if(res.status == 201){
+      console.log("User created successfully");
+    }else{
+      console.log(res.status);
+      console.log("Ooops something went wrong");
+    }
+  }catch(err){
+    console.log(err);
+  }
+}

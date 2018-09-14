@@ -1,5 +1,5 @@
 //globals
-localStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZGVudGl0eSI6Im11Z3VuYW1hcnRpbjM0MEBnbWFpbC5jb20iLCJpYXQiOjE1MzY4NzQ3MjIsIm5iZiI6MTUzNjg3NDcyMiwiZXhwIjoxNTM2ODc4MzIyfQ.WXPj7mVJBkWLeD0uw8Po4viUPoL21V6IxyjlywH0twI')
+localStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzY5NTU2MTksImlhdCI6MTUzNjk1MjAxOSwibmJmIjoxNTM2OTUyMDE5LCJpZGVudGl0eSI6Im1hcnRpbmthYnVydS5tQGdtYWlsLmNvbSJ9.rzcGrmhaA-dooDlvhehuNH7R6m3dF86ZYGjJRu5aSZQ')
 token = localStorage.getItem('token')
 
 head = new Headers({
@@ -97,4 +97,40 @@ const upvote = async (id) => {
   });
   let json = await response.json()
   notification(json["message"]);
+}
+
+
+const editAnswer = (questionId, answerId) => {
+  let paragraphId = 'p'+answerId.toString()
+  let element = document.getElementById(paragraphId)
+  let content = element.innerHTML;
+  content = content.trim()
+  let textareaId = 'txt'+answerId.toString()
+  let html = `
+  <textarea id=${textareaId} rows="8" cols="80">${content}</textarea><br>
+  <button type="button" onclick="submitEdit(${questionId}, ${answerId});">Edit</button><button type="button" onclick="document.getElementById('pop_up').remove()">Cancel</button>
+  `
+  let node = document.createElement("div");
+  node.className = 'pop-up'
+  node.id = 'pop_up'
+  node.innerHTML = html
+  document.getElementById('feed').appendChild(node)
+}
+
+const submitEdit = async (questionId, answerId) => {
+  let element = document.getElementById('txt'+answerId.toString())
+  let content = element.value;
+  console.log(content);
+  content = content.trim()
+  let url = baseURL+`questions/${questionId}/answers/${answerId}`;
+  const response = await fetch(url, {
+    method: 'PUT',
+    headers: head,
+    body:JSON.stringify({
+      "content":content
+    })
+  });
+  document.getElementById('pop_up').remove()
+  let json = await response.json()
+  notification(json["message"])
 }

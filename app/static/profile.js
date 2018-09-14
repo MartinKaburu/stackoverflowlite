@@ -20,7 +20,7 @@ const getMyQuestions = async () => {
           Posted by ${user}<br>
           On {date}
         </p>
-        <button class="show_more" onclick="getAnswers(${id});">Answers {number}</button> &nbsp; <button class="show_more" onclick="deleteQuestion(${id});">Delete</button>
+        <button class="show_more" onclick="getAnswers(${id});">Answers</button> &nbsp; <button class="show_more" onclick="deleteQuestion(${id});">Delete</button>
         <hr>
       `
       node = document.createElement('div')
@@ -57,23 +57,45 @@ const getAnswers = async (id) => {
             let user = data[answer].username
             let answerId = data[answer].answer_id
             let questionId = data[answer].question_id
-            div = `
-                <p>
-                    ${content}
-                  <br>
-                </p>
-                <ul>
-                    <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>
-                    <li><button onclick="upvote(${answerId});"><i class="fa fa-plus"></i> Upvote ${upvotes}</button></a></li>
-                    <li><button onclick="accept(${questionId}, ${answerId});"><i class="fa fa-check"></i> Accept</button></a></li>
-                </ul>
-                <p>
-                  Answer by ${user}<br>
-                  On {date}
-                </p>
-                <hr>
-            `
-            node.innerHTML += div
+            paragraphId = 'p'+answerId.toString()
+            if(accepted){
+              div = `
+                <img src="../static/img/tick.png" alt="">
+                  <p id=${paragraphId} style="font-weight: bold;">
+                      ${content}
+                  </p>
+                  <p style="font-style: italic; font-weight: bold;">
+                    Answer by ${user}<br>
+                    On {date}
+                  </p>
+                  <ul>
+                      <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>
+                      <li><button onclick="upvote(${answerId});"><i class="fa fa-plus"></i> Upvote ${upvotes}</button></a></li>
+                      <li><button onclick="accept(${questionId}, ${answerId});"><i class="fa fa-check"></i> Accept</button></a></li>
+                      <li><button onclick="editAnswer(${questionId}, ${answerId});">Edit</button></a></li>
+                  </ul>
+                  <hr>
+              `
+              node.innerHTML += div
+            }else{
+              div = `
+                  <p id=${paragraphId}>
+                      ${content}
+                  </p>
+                  <p>
+                    Answer by ${user}<br>
+                    On {date}
+                  </p>
+                  <ul>
+                      <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>
+                      <li><button onclick="upvote(${answerId});"><i class="fa fa-plus"></i> Upvote ${upvotes}</button></a></li>
+                      <li><button onclick="accept(${questionId}, ${answerId});"><i class="fa fa-check"></i> Accept</button></a></li>
+                      <li><button onclick="editAnswer(${questionId}, ${answerId});">Edit</button></a></li>
+                  </ul>
+                  <hr>
+              `
+              node.innerHTML += div
+            }
         }
         let textareaid = 'textarea'+id.toString()
         let answerTextarea = `

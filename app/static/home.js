@@ -20,7 +20,7 @@ const getQuestions = async () => {
           Posted by ${user}<br>
           On {date}
         </p>
-        <button class="show_more" onclick="getAnswers(${id});">Answers {number}</button>
+        <button class="show_more" onclick="getAnswers(${id});">Answers</button>
         <hr>
       `
       node = document.createElement('div')
@@ -43,9 +43,9 @@ const getAnswers = async (id) => {
     headers: head
   });
   if(response.status == 200){
-      json = await response.json()
+      let json = await response.json()
       let data = await json.answers
-      node = document.createElement('div')
+      let node = document.createElement('div')
       node.id = id
       node.className = "my_answer"
       node.style['display'] = 'none'
@@ -56,23 +56,47 @@ const getAnswers = async (id) => {
           let accepted = data[answer].accepted
           let user = data[answer].username
           let answerId = data[answer].answer_id
+          let questionId = data[answer].question_id
           textareaid = 'textarea'+id.toString()
-          div = `
-              <p>
-                  ${content}
-                <br>
-              </p>
-              <ul>
-                  <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>
-                  <li><button onclick="upvote(${answerId});"><i class="fa fa-plus"></i> Upvote ${upvotes}</button></a></li>
-              </ul>
-              <p>
-                Answer by ${user}<br>
-                On {date}
-              </p>
-              <hr>
-          `
-          node.innerHTML += div
+          paragraphId = 'p'+answerId.toString()
+          if(accepted){
+            div = `
+                <p id=${paragraphId} style="color:green;font-style: bold;">
+                    ${content}
+                </p>
+                <p style="font-style: italic;color:green;">
+                  [ACCEPTED]<br>
+                  Answer by ${user}<br>
+                  On {date}
+                </p>
+                <ul>
+                    <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>
+                    <li><button onclick="upvote(${answerId});"><i class="fa fa-plus"></i> Upvote ${upvotes}</button></a></li>
+                    <li><button onclick="editAnswer(${questionId}, ${answerId});">Edit</button></a></li>
+                </ul>
+                <hr>
+            `
+            node.innerHTML += div
+
+          }else{
+            div = `
+                <p id=${paragraphId}>
+                    ${content}
+                </p>
+                <p style="font-style: italic;">
+                  Answer by ${user}<br>
+                  On {date}
+                </p>
+                <ul>
+                    <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>
+                    <li><button onclick="upvote(${answerId});"><i class="fa fa-plus"></i> Upvote ${upvotes}</button></a></li>
+                    <li><button onclick="editAnswer(${questionId}, ${answerId});">Edit</button></a></li>
+                </ul>
+                <hr>
+            `
+            node.innerHTML += div
+          }
+
       }
       textareaid = 'textarea'+id.toString()
       answer_question = `

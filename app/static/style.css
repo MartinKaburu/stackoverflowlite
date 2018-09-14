@@ -568,7 +568,7 @@ body{
   right: 0;
   top:40%;
   position: fixed;
-
+  margin-left: -3%;
 }
 
 .user_info button{
@@ -579,8 +579,12 @@ body{
   border: none;
   margin-left: 0%;
 }
+
 .user_info ul{
-  margin-right: 5%;
+  margin-left: -5%;
+}
+.user_info li{
+  display: inline;
 }
 .user_info h3{
   margin-left: 43%;
@@ -642,4 +646,45 @@ body{
   margin-left: -2%;
   box-shadow: 3px -5px 5px 6px #ccc;
   -webkit-animation: slidein 1s;
+}
+
+@keyframes fadein {
+    from { opacity: 0;}
+    to   { opacity: 1;}
+}
+
+
+.pop-up{
+  display: block;
+  margin-left: -0.5%;
+  position: fixed ;
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 100000000000;
+  -webkit-animation: fadein 2s;
+  top: 0;
+  text-align: center;
+  overflow-y: hidden;
+}
+
+.pop-up button{
+  display: inline;
+  z-index: 10000;
+  width: 10%;
+  background-color: #0085a1;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+}
+
+
+.pop-up textarea{
+  background-color: white;
+  color: #000 ;
+  width: 20%;
+  padding: 10px;
+  border: none;
+  margin: auto;
+  margin-top: 20%;
 }
