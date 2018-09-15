@@ -55,7 +55,7 @@ elem = document.getElementById('loginbtn').addEventListener('click', async (even
           let json = await res.json();
           let token = json['access_token'];
           localStorage.setItem('token', token);
-          window.location.replace('http://127.0.0.1:5000/home');
+          window.location.replace('https://stackoverflowlite-beta.herokuapp.com/home');
       }else{
         let data = await res.json();
         try{
