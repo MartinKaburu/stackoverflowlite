@@ -1,6 +1,6 @@
 '''Module to render pages
 '''
-from flask import render_template, redirect, url_fors
+from flask import render_template, redirect, url_for
 from flask_jwt import jwt_required
 
 from . import APP
