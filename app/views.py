@@ -25,3 +25,9 @@ def get_started():
     '''render the login/signup page
     '''
     return render_template('login.html')
+
+@APP.route('/')
+def getting_started():
+    '''render the login/signup page
+    '''
+    return redirect(url_for('get_started'))
