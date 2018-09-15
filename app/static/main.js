@@ -59,7 +59,7 @@ let elem = document.getElementById('askQue').addEventListener('click', async (ev
 
 const logOut = () => {
   localStorage.removeItem('token')
-  window.location.replace('https://kaburu-stackoverflowlite-cp3.herokuapp.com/api/v1/auth')
+  window.location.replace('https://stackoverflowlite-beta.herokuapp.com/auth')
 }
 
 
