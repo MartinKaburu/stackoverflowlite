@@ -120,7 +120,7 @@ li {
     padding-top: 50px;
     margin-top: 120px;
     margin-left: 150px;
-    width: 25%;
+    width: 30%;
     opacity: .5;
     -webkit-transition: opacity 1s ease-in;
     height: 60%;
@@ -687,4 +687,42 @@ body{
   border: none;
   margin: auto;
   margin-top: 20%;
+}
+
+@keyframes notein{
+  from{ top: -50; }
+  to{ top: -17; }
+}
+
+@keyframes noteout{
+  from{ top: -17; }
+  to{ top: -50; }
+}
+
+#note {
+  position: absolute;
+  z-index: 101;
+  width: 50%;
+  right: 50%;
+  top: -17;
+  background: #ded9df;
+  line-height: 2.5;
+  text-align: center;
+  overflow: hidden;
+  box-shadow:0 0 5px black;
+  -webkit-animation: notein 1s;
+}
+
+#notel {
+  position: absolute;
+  z-index: 101;
+  width: 50%;
+  left: 50%;
+  top: -17;
+  background: #0085a1;
+  line-height: 2.5;
+  text-align: center;
+  overflow: hidden;
+  box-shadow:0 0 5px black;
+  -webkit-animation: notein 1s;
 }

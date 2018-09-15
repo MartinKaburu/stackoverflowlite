@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="../static/style.css">
 <script src="../static/main.js"></script>
-<script src="../static/login.js"></script>
+
 <!--Try make this responsive-->
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="HandheldFriendly" content="true">
-<body>
+<body id="body">
   <div class="my-page">
     <div class="left">
       <form name='signupForm' class="form signup animated bounceInLeft">
@@ -23,14 +23,14 @@
             </label>
             <input type="email" name="email" required autocomplete="on"/>
           </div>
-          <div class="field-wrap">
+          <div class="field-wrap" id="pass">
             <label>
               Password
             </label>
             <input type="password" name="password" required autocomplete="off"/>
           </div>
         <div class="field-wrap">
-          <button type="submit" class="button" onclick="submitSignup();">Submit</button>
+          <button  class="button" id="signupbtn">Submit</button>
         </div>
       </form>
     </div>
@@ -57,9 +57,10 @@
           </div>
           <div class="field-wrap">
             <a href="#">Forgot password?</a>
-          <button class="button" onclick="login();"/>Submit</button>
+          <button class="button" id="loginbtn">Submit</button>
         </div>
       </form>
     </div>
   </div>
 </body>
+<script src="../static/login.js"></script>

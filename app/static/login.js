@@ -2,92 +2,94 @@ let head = new Headers({
   'Content-Type':'application/json'
 });
 
-// const login = async () => {
-//       let form = document.getElementById('login');
-//       let email = form.email.value;
-//       let password = form.password.value;
-//       let frame = JSON.stringify({
-//         "email": email,
-//         "password": password,
-//       })
-//       console.log(frame);
-//       let settings = {
-//           method: 'POST',
-//           headers: {'Content-Type':'application/json'},
-//           body: frame
-//       }
-//       let url = 'http://127.0.0.1:8000/api/v1/auth/login'
-//       fetch(url, settings)
-//       .then((res) => {
-//           if(res.status == 200){
-//               console.log("success");
-//               res.json().then((data) => {
-//               localStorage.setItem("token", data["access_token"]);
-//               window.location.replace('http://127.0.0.1:5000/home');
-//             })
-//           }else{
-//               console.log("login failed");
-//               console.log(res.json());
-//               console.log(res.status);
-//               return;
-//           }
-//      })
-//       .catch((err) => {
-//           console.log(err);
-//         });
-// };
 
-const login = async () => {
-    let form = document.getElementById('login');
-    let email = form.email.value;
-    let password = form.password.value;
-    let url = 'http://127.0.0.1:8000/api/v1/auth/login'
-    let res  = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type':'application/json'
-        },
-        body: JSON.stringify({
-          'email': "mugunamartin340@gmail.com",
-          'password': "kaburu@andela",
-        })
-    })
-    console.log(res.status);
-    if(res.status == 200){
-      console.log(" success is here");
-      data  = await res.json()
-      console.log(data);
-    }else{
-      console.log("failed");
-      data = await res.json();
-      console.log(data);
-    }
-
-};
-
-async function submitSignup(){
-  const signupForm = document.forms['signupForm']
-  let username = signupForm.username.value;
-  let email = signupForm.email.value;
-  let password = signupForm.password.value;
-  url = baseURL + 'auth/signup'
-  try{
-    let res = await fetch(url, {
-      method: 'POST',
-      headers: head,
-      body: JSON.stringify({
-        "username": username,
-        "email": email,
-        "password": password
-      })
-    })
-    if(res.status == 201){
-      console.log("User created successfully");
-    }else{
-      console.log(res.status);
-      console.log("Ooops something went wrong");
-    }
-  }catch(err){
-    console.log(err);
-  }
+const notelogin = (data) =>{
+  p = document.createElement('p')
+  p.id = 'notel';
+  p.innerHTML = data;
+  document.getElementById('body').appendChild(p)
+  setTimeout(() => {
+    element = document.getElementById('notel')
+    element.style['-webkit-animation'] = 'noteout 2s'
+  }, 2000)
+  setTimeout(() => {
+    element = document.getElementById('notel').remove();
+  }, 4000)
 }
+
+
+let elem = document.getElementById('loginbtn').addEventListener('click', async (event) => {
+      event.preventDefault();
+      let form = document.getElementById('login');
+      let email = form.email.value;
+      let password = form.password.value;
+      let frame = JSON.stringify({
+        "email": email,
+        "password": password,
+      })
+      let settings = {
+          method: 'POST',
+          headers: head,
+          body: frame
+      }
+      let url = 'http://127.0.0.1:8000/api/v1/auth/login'
+      const res = await fetch(url, settings);
+      if(res.status == 200){
+          let json = await res.json();
+          let token = json['access_token'];
+          localStorage.setItem('token', token);
+          window.location.replace('http://127.0.0.1:5000/home');
+      }else{
+        let data = await res.json();
+        try{
+            notelogin(data["description"]);
+        }catch{
+            notelogin(data["message"]);
+        }
+      }
+});
+
+const notesignup = (data) =>{
+  p = document.createElement('p')
+  p.id = 'note';
+  p.innerHTML = data;
+  document.getElementById('body').appendChild(p)
+  setTimeout(() => {
+    element = document.getElementById('note')
+    element.style['-webkit-animation'] = 'noteout 2s'
+  }, 2000)
+  setTimeout(() => {
+    element = document.getElementById('note').remove();
+  }, 4000)
+}
+
+
+elem = document.getElementById('signupbtn').addEventListener('click', async (event) => {
+    event.preventDefault();
+    const signupForm = document.forms['signupForm']
+    let username = signupForm.username.value;
+    let email = signupForm.email.value;
+    let password = signupForm.password.value;
+    url = baseURL + 'auth/signup'
+    try{
+        let res = await fetch(url, {
+          method: 'POST',
+          headers: head,
+          body: JSON.stringify({
+            "username": username,
+            "email": email,
+            "password": password
+          })
+        })
+        if(res.status == 201){
+            let data = await res.json();
+            data = data["message"]+"&nbsp;log in to continue"
+            notesignup(data)
+        }else{
+          let data = await res.json();
+          notesignup(data["message"]);
+        }
+    }catch(err){
+          console.log(err);
+    }
+});

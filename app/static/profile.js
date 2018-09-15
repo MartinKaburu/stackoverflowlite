@@ -10,15 +10,16 @@ const getMyQuestions = async () => {
     for(question in data){
       content = data[question].content;
       id = data[question].question_id;
-      user = data[question].username
+      user = data[question].username;
+      date = data[question].posted_on
       div = `
         <p>
           ${content}
           <br>
         </p>
-        <p>
-          Posted by ${user}<br>
-          On {date}
+        <p style="font-style: italic;">
+          Asked by ${user}<br>
+          On ${date}
         </p>
         <button class="show_more" onclick="getAnswers(${id});">Answers</button> &nbsp; <button class="show_more" onclick="deleteQuestion(${id});">Delete</button>
         <hr>
@@ -29,6 +30,9 @@ const getMyQuestions = async () => {
       node.innerHTML = div;
       document.getElementById('mmm').appendChild(node);
     }
+  }else if(response.status == 404){
+    let json = await response.json()
+    notification(json["message"])
   }
   else{
     window.location.replace('http://127.0.0.1:5000/auth')
@@ -57,6 +61,7 @@ const getAnswers = async (id) => {
             let user = data[answer].username
             let answerId = data[answer].answer_id
             let questionId = data[answer].question_id
+            let date = data[answer].posted_on
             paragraphId = 'p'+answerId.toString()
             if(accepted){
               div = `
@@ -66,7 +71,7 @@ const getAnswers = async (id) => {
                   </p>
                   <p style="font-style: italic; font-weight: bold;">
                     Answer by ${user}<br>
-                    On {date}
+                    On ${date}
                   </p>
                   <ul>
                       <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>
@@ -82,9 +87,9 @@ const getAnswers = async (id) => {
                   <p id=${paragraphId}>
                       ${content}
                   </p>
-                  <p>
+                  <p style="font-style: italic;">
                     Answer by ${user}<br>
-                    On {date}
+                    On ${date}
                   </p>
                   <ul>
                       <li><button onclick="downvote(${answerId});"><i class="fa fa-minus"></i> Downvote ${downvotes}</button></a></li>

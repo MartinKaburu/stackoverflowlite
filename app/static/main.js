@@ -1,5 +1,4 @@
 //globals
-localStorage.setItem('token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MzY5NTU2MTksImlhdCI6MTUzNjk1MjAxOSwibmJmIjoxNTM2OTUyMDE5LCJpZGVudGl0eSI6Im1hcnRpbmthYnVydS5tQGdtYWlsLmNvbSJ9.rzcGrmhaA-dooDlvhehuNH7R6m3dF86ZYGjJRu5aSZQ')
 token = localStorage.getItem('token')
 
 head = new Headers({
@@ -44,16 +43,18 @@ const notification = (message) => {
 const postQuestion = async () => {
   const form = document.forms['askQuestion'];
   const question = form.question.value;
-  let url = baseURL+'questions'
-  const response = await fetch(url, {
+  let url = baseURL+'questions';
+  let settings = {
     method: 'POST',
     headers: head,
     body: JSON.stringify({
       "content":question
     })
-  });
+  }
+  const response = await fetch(url, settings);
+  console.log(settings);
   let json = await response.json()
-  notification(json["message"]);
+  console.log(json["message"]);
 }
 
 
@@ -116,6 +117,7 @@ const editAnswer = (questionId, answerId) => {
   node.innerHTML = html
   document.getElementById('feed').appendChild(node)
 }
+
 
 const submitEdit = async (questionId, answerId) => {
   let element = document.getElementById('txt'+answerId.toString())
