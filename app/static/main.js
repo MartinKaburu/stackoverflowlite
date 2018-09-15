@@ -6,7 +6,7 @@ head = new Headers({
   "Authorization": "JWT " + token
 });
 
-baseURL = 'http://localhost:8000/api/v1/'
+baseURL = 'https://kaburu-stackoverflowlite-cp3.herokuapp.com/api/v1/'
 
 
 const showHidden = (id) => {
@@ -39,8 +39,8 @@ const notification = (message) => {
     }, 1000)
 }
 
-
-const postQuestion = async () => {
+let elem = document.getElementById('askQue').addEventListener('click', async (event) => {
+  event.preventDefault();
   const form = document.forms['askQuestion'];
   const question = form.question.value;
   let url = baseURL+'questions';
@@ -52,10 +52,9 @@ const postQuestion = async () => {
     })
   }
   const response = await fetch(url, settings);
-  console.log(settings);
   let json = await response.json()
-  console.log(json["message"]);
-}
+  notification(json["message"]);
+});
 
 
 const logOut = () => {
