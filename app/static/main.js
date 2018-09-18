@@ -6,7 +6,7 @@ head = new Headers({
   "Authorization": "JWT " + token
 });
 
-baseURL = 'https://kaburu-stackoverflowlite-cp3.herokuapp.com/api/v1/'
+baseURL = 'http://127.0.0.1:8000/api/v1/'
 
 
 const showHidden = (id) => {
@@ -39,6 +39,7 @@ const notification = (message) => {
     }, 1000)
 }
 
+
 let elem = document.getElementById('askQue').addEventListener('click', async (event) => {
   event.preventDefault();
   const form = document.forms['askQuestion'];
@@ -53,13 +54,18 @@ let elem = document.getElementById('askQue').addEventListener('click', async (ev
   }
   const response = await fetch(url, settings);
   let json = await response.json()
+  try{
+    getQuestions();
+  }catch{
+    getMyQuestions();
+  }
   notification(json["message"]);
 });
 
 
 const logOut = () => {
   localStorage.removeItem('token')
-  window.location.replace('https://stackoverflowlite-beta.herokuapp.com/auth')
+  window.location.replace('http://127.0.0.1:5000/auth')
 }
 
 
@@ -95,7 +101,7 @@ const upvote = async (id) => {
     method: 'POST',
     headers: head,
   });
-  let json = await response.json()
+  let json = await response.json();
   notification(json["message"]);
 }
 

@@ -11,7 +11,10 @@ const getMyQuestions = async () => {
       content = data[question].content;
       id = data[question].question_id;
       user = data[question].username;
-      date = data[question].posted_on
+      date = data[question].posted_on;
+      try{
+        document.getElementById(id.toString()+'this').remove();
+      }catch{}
       div = `
         <p>
           ${content}
@@ -136,5 +139,6 @@ const deleteQuestion = async (id) => {
     headers: head,
   });
   let json = await response.json()
+  document.getElementById(id.toString()+'this').remove();
   notification(json["message"]);
 }

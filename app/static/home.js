@@ -12,6 +12,9 @@ const getQuestions = async () => {
       id = data[question].question_id;
       user = data[question].username;
       date = data[question].posted_on;
+      try{
+        document.getElementById(id.toString()+'this').remove();
+      }catch{}
       div = `
         <p>
           ${content}
@@ -34,7 +37,7 @@ const getQuestions = async () => {
     let json = await response.json()
     notification(json["message"])
   }else{
-    window.location.replace('https://stackoverflowlite-beta.herokuapp.com/auth');
+    window.location.replace('http://127.0.0.1:5000/auth');
   }
 }
 
