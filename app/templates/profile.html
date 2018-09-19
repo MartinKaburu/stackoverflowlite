@@ -13,11 +13,6 @@
         <li><a href="http://127.0.0.1:5000/home">Home</a> </li>
         <li><a href="#">Profile</a> </li>
         <li onclick="globals.logOut();"><a href="#">Log out</a> </li>
-        <li>
-          <form class="search_form" action="index.html" method="post">
-            <input type="text" name="search" placeholder="search...">
-          </form>
-        </li>
       </ul>
     </nav>
     <div class="feed" id="feed">
@@ -31,7 +26,11 @@
         <h2>My Recent Questions</h2>
         <hr>
         <ul>
-          <li><a href="#"> Checkout this question story</a> </li>
+          <li>
+            <form class="search_form" action="index.html" method="post">
+              <input type="text" name="search" placeholder="search...">
+            </form>
+          </li>
           <li><a href="#"> Checkout this question story</a> </li>
           <li><a href="#"> Checkout this question story</a> </li>
           <li><a href="#"> Checkout this question story</a> </li>
@@ -46,16 +45,6 @@
       </form>
       <div class="logo animated bounceInLeft">
         <img src="../static/img/logo.png" alt="">
-      </div>
-      <div class="profile animated bounceInRight">
-        <img src="../static/img/avatar0.png" alt="avatart">
-      </div>
-      <div class="user_info">
-        <h3>John Doe</h3>
-        <ul>
-          <li><button type="submit" class="button">Questions 4</button></li>
-          <li><button type="submit" class="button">Answers 90</button></li>
-        </ul>
       </div>
     </div>
   </body>

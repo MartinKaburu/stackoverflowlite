@@ -21,9 +21,8 @@ const home = {
               ${content}
               <br>
             </p>
-            <p style="font-style:italic;">
-              Asked by ${user}<br>
-              On ${date}
+            <p style="font-style: italic;font-family:courier;color:grey;font-weight:bold;font-size:0.8em;margin-left:60%;">
+              Asked by ${user}<br>On ${date}
             </p>
             <button class="show_more" onclick="home.getAnswers(${id});">Answers</button>
             <hr>
@@ -75,15 +74,14 @@ const home = {
                     <p id=${paragraphId} style="font-weight: bold;">
                         ${content}
                     </p>
-                    <p style="font-style: italic; font-weight: bold;">
-                      Answer by ${user}<br>
-                      On ${date}
+                    <p style="font-style: italic;font-family:courier;color:grey;font-weight:bold;font-size:0.8em;margin-left:60%;">
+                      Answer by ${user}<br>On ${date}
                     </p>
                     <ul>
-                        <li><i class="fa fa-thumbs-up" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
-                        <li><i class="fa fa-thumbs-down" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
-                        <li><i class="fa fa-edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
-                        <li><i class="fa fa-trash-alt" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
+                        <li><i class="fa fa-thumbs-down" title="downvote" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
+                        <li><i class="fa fa-thumbs-up" title="upvote" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
+                        <li><i class="fa fa-edit" title="edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
+                        <li><i class="fa fa-trash" title="delete" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
                     </ul>
                     <hr>
                     </div>
@@ -96,15 +94,14 @@ const home = {
                     <p id=${paragraphId}>
                         ${content}
                     </p>
-                    <p style="font-style: italic;">
-                      Answer by ${user}<br>
-                      On ${date}
+                    <p style="font-style: italic;font-family:courier;color:grey;font-weight:bold;font-size:0.8em;margin-left:60%;">
+                      Answer by ${user}<br>On ${date}
                     </p>
                     <ul>
-                        <li><i class="fa fa-thumbs-up" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
-                        <li><i class="fa fa-thumbs-down" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
-                        <li><i class="fa fa-edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
-                        <li><i class="fa fa-trash" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
+                        <li><i class="fa fa-thumbs-down" title="downvote" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
+                        <li><i class="fa fa-thumbs-up" title="upvote" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
+                        <li><i class="fa fa-edit" title="edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
+                        <li><i class="fa fa-trash" title="delete" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
                     </ul>
                     <hr>
                     </div>

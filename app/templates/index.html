@@ -13,11 +13,6 @@
         <li><a href="#">Home</a> </li>
         <li><a href="http://127.0.0.1:5000/profile">Profile</a></li>
         <li onclick="globals.logOut();"><a href="#">Log out</a></li>
-        <li>
-          <form class="search_form" action="index.html" method="post">
-            <input type="text" name="search" placeholder="search...">
-          </form>
-        </li>
       </ul>
     </nav>
     <div class="feed" id="feed">
@@ -31,7 +26,11 @@
         <h1>Recent Activity</h1>
         <hr>
         <ul>
-          <li><a href="#"> Checkout this recent story</a> </li>
+          <li>
+            <form class="search_form" action="index.html" method="post">
+              <input type="text" name="search" placeholder="search...">
+            </form>
+          </li>
           <li><a href="#"> Checkout this recent story</a> </li>
           <li><a href="#"> Checkout this recent story</a> </li>
           <li><a href="#"> Checkout this recent story</a> </li>

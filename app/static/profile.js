@@ -8,12 +8,15 @@ const profile = {
     if(response.status == 200){
       json = await response.json()
       let data = await json.QUESTIONS
+      let user = data[0].username;
+      let question_number = 0
       for(question in data){
         content = data[question].content;
         questionId = data[question].question_id;
         user = data[question].username;
         date = data[question].posted_on;
         paragraphId = 'content'+ questionId.toString()
+        question_number+=1;
         try{
           document.getElementById(questionId.toString()+'this').remove();
         }catch{}
@@ -21,11 +24,10 @@ const profile = {
           <p id=${paragraphId}>
             ${content}
           </p>
-          <p style="font-style: italic;">
-            Asked by ${user}<br>
-            On ${date}
+          <p style="font-style: italic;font-family:courier;color:grey;font-weight:bold;font-size:0.8em;margin-left:60%;">
+            Asked by ${user}<br> On ${date}
           </p>
-          <button class="show_more" onclick="profile.getAnswers(${questionId});">Answers</button>&nbsp;<i class="fa fa-trash" onclick="message.confirmDeleteQuestion(${questionId})"></i>&nbsp;<i class="fa fa-edit" onclick="message.editQuestion(${questionId});"></i>
+          <button class="show_more" onclick="profile.getAnswers(${questionId});">Answers</button>&nbsp;<i class="fa fa-trash" title="Delete" onclick="message.confirmDeleteQuestion(${questionId})"></i>&nbsp;<i class="fa fa-edit" title="edit" onclick="message.editQuestion(${questionId});"></i>
           <hr>
         `
         node = document.createElement('div')
@@ -34,6 +36,18 @@ const profile = {
         node.innerHTML = div;
         document.getElementById('mmm').appendChild(node);
       }
+      let user_info = `
+        <img src="../static/img/avatar0.png" alt="avatart">
+        <h3>${user}</h3>
+        <ul>
+          <li><button class="button">Questions ${question_number}</button></li>
+          <li><button class="button">Answers 90</button></li>
+        </ul>
+      `
+      node = document.createElement('div')
+      node.className = 'user_info'
+      node.innerHTML = user_info;
+      document.getElementById('feed').appendChild(node)
     }else if(response.status == 404){
       let json = await response.json()
       message.notification(json["message"])
@@ -67,7 +81,7 @@ const profile = {
                 let questionId = data[answer].question_id
                 let date = data[answer].posted_on;
                 divId = 'answer'+answerId.toString();
-                paragraphId = 'p'+answerId.toString()
+                paragraphId = 'p'+answerId.toString();
                 if(accepted){
                   div = `
                     <div id=${divId}>
@@ -75,15 +89,14 @@ const profile = {
                       <p id=${paragraphId} style="font-weight: bold;">
                           ${content}
                       </p>
-                      <p style="font-style: italic; font-weight: bold;">
-                        Answer by ${user}<br>
-                        On ${date}
+                      <p style="font-style: italic;font-family:courier;color:grey;font-weight:bold;font-size:0.8em;margin-left:60%;">
+                        Answer by ${user}<br> On ${date}
                       </p>
                       <ul>
-                      <li><i class="fa fa-thumbs-up" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
-                      <li><i class="fa fa-thumbs-down" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
-                      <li><i class="fa fa-edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
-                      <li><i class="fa fa-trash" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
+                      <li><i class="fa fa-thumbs-down" title="downvote" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
+                      <li><i class="fa fa-thumbs-up" title="upvote" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
+                      <li><i class="fa fa-edit" title="edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
+                      <li><i class="fa fa-trash" title="delete" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
                       </ul>
                       <hr>
                       </div>
@@ -95,16 +108,15 @@ const profile = {
                       <p id=${paragraphId}>
                           ${content}
                       </p>
-                      <p style="font-style: italic;">
-                        Answer by ${user}<br>
-                        On ${date}
+                      <p style="font-style: italic;font-family:courier;color:grey;font-weight:bold;font-size:0.8em;margin-left:60%;">
+                        Answer by ${user}<br> On ${date}
                       </p>
                       <ul>
-                          <li><i class="fa fa-thumbs-up" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
-                          <li><i class="fa fa-thumbs-down" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
-                          <li><i class="fa fa-edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
-                          <li><i class="fa fa-trash" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
-                          <li><i class="fa fa-check" onclick="profile.accept(${questionId}, ${answerId});"></i></li>
+                          <li><i class="fa fa-thumbs-down" title="downvote" onclick="vote.downvote(${answerId}, ${questionId});">${downvotes}</i></li>
+                          <li><i class="fa fa-thumbs-up" title="upote" onclick="vote.upvote(${answerId}, ${questionId});">${upvotes}</i></li>
+                          <li><i class="fa fa-edit" title="edit" onclick="message.editAnswer(${questionId}, ${answerId});"></i></li>
+                          <li><i class="fa fa-trash" title="delete" onclick="message.confirmDeleteAnswer(${answerId}, ${questionId})"></i></li>
+                          <li><i class="fa fa-check" title="accept" onclick="profile.accept(${questionId}, ${answerId});"></i></li>
                       </ul>
                       <hr>
                       </div>

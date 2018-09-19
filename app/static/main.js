@@ -109,7 +109,6 @@ const vote = {
         try{
           home.getQuestions();
           home.getAnswers(questionId);
-          home.getAnswers(questionId);
         }catch{
           profile.getMyQuestions();
           profile.getAnswers(questionId);
@@ -161,7 +160,6 @@ const globals = {
         if(response.status == 201){
           try{
             home.getQuestions();
-            home.getAnswers(questionId);
             home.getAnswers(questionId);
           }catch{
             profile.getMyQuestions();
