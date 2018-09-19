@@ -6,7 +6,7 @@ head = new Headers({
   "Authorization": "JWT " + token
 });
 
-baseURL = 'http://127.0.0.1:8000/api/v1/'
+baseURL = 'https://kaburu-stackoverflowlite-cp3.herokuapp.com/api/v1/'
 
 
 const message = {
@@ -173,7 +173,7 @@ const globals = {
 
     logOut: () => {
         localStorage.removeItem('token');
-        window.location.replace('http://127.0.0.1:5000/auth');
+        window.location.replace('https://stackoverflowlite-beta.herokuapp.com/auth');
     },
 
 

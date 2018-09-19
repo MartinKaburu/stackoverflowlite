@@ -37,7 +37,7 @@ const home = {
         let json = await response.json()
         notification(json["message"])
       }else{
-        window.location.replace('http://127.0.0.1:5000/auth');
+        window.location.replace('https://stackoverflowlite-beta.herokuapp.com/auth');
       }
     },
 
