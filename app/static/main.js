@@ -112,7 +112,6 @@ const vote = {
         }catch{
           profile.getMyQuestions();
           profile.getAnswers(questionId);
-          profile.getAnswers(questionId);
         }
       }
       message.notification(json["message"]);;
@@ -130,10 +129,8 @@ const vote = {
         try{
           home.getQuestions();
           home.getAnswers(questionId);
-          home.getAnswers(questionId);
         }catch{
           profile.getMyQuestions();
-          profile.getAnswers(questionId);
           profile.getAnswers(questionId);
         }
       }
@@ -163,7 +160,6 @@ const globals = {
             home.getAnswers(questionId);
           }catch{
             profile.getMyQuestions();
-            profile.getAnswers(questionId);
             profile.getAnswers(questionId);
           }
         }

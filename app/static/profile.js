@@ -150,7 +150,6 @@ const profile = {
         if(response.status == 200){
           profile.getMyQuestions();
           profile.getAnswers(questionId);
-          profile.getAnswers(questionId);
         }
         message.notification(json["message"]);
     },
