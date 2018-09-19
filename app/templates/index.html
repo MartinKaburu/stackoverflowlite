@@ -3,20 +3,16 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../static/home.js"></script>
     <title>Stack Overflow lite</title>
   </head>
-  <body  onload="getQuestions();">
+  <body  onload="home.getQuestions();">
     <nav class="nav_bar">
       <ul>
         <li><a href="#">Home</a> </li>
         <li><a href="https://stackoverflowlite-beta.herokuapp.com/profile">Profile</a></li>
-        <li onclick="logOut();"><a href="#">Log out</a></li>
-        <li>
-          <form class="search_form" action="index.html" method="post">
-            <input type="text" name="search" placeholder="search...">
-          </form>
-        </li>
+        <li onclick="globals.logOut();"><a href="#">Log out</a></li>
       </ul>
     </nav>
     <div class="feed" id="feed">
@@ -30,7 +26,11 @@
         <h1>Recent Activity</h1>
         <hr>
         <ul>
-          <li><a href="#"> Checkout this recent story</a> </li>
+          <li>
+            <form class="search_form" action="index.html" method="post">
+              <input type="text" name="search" placeholder="search...">
+            </form>
+          </li>
           <li><a href="#"> Checkout this recent story</a> </li>
           <li><a href="#"> Checkout this recent story</a> </li>
           <li><a href="#"> Checkout this recent story</a> </li>
@@ -52,16 +52,6 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <ul class="list-inline text-center">
-          <li class="list-inline-item">
-            <a href="https://www.github.com/MartinKaburu/StackOverflow-lite">
-              <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x"></i>
-                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
         <p>Copyright &copy; StackOverflow-lite 2018</p>
       </div>
     </div>

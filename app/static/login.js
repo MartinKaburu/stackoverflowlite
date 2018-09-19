@@ -4,36 +4,36 @@ let head = new Headers({
 
 let baseURL = 'https://kaburu-stackoverflowlite-cp3.herokuapp.com/api/v1/'
 
+const authMessage = {
+  notelogin: (data) =>{
+      p = document.createElement('p');
+      p.id = 'notel';
+      p.innerHTML = data;
+      document.getElementById('body').appendChild(p);
+      setTimeout(() => {
+        element = document.getElementById('notel');
+        element.style['-webkit-animation'] = 'noteout 2s';
+      }, 2000);
+      setTimeout(() => {
+        element = document.getElementById('notel').remove();
+      }, 4000);
+  },
 
-const notelogin = (data) =>{
-  p = document.createElement('p');
-  p.id = 'notel';
-  p.innerHTML = data;
-  document.getElementById('body').appendChild(p);
-  setTimeout(() => {
-    element = document.getElementById('notel');
-    element.style['-webkit-animation'] = 'noteout 2s';
-  }, 2000);
-  setTimeout(() => {
-    element = document.getElementById('notel').remove();
-  }, 4000);
+
+  notesignup: (data) =>{
+      p = document.createElement('p');
+      p.id = 'note';
+      p.innerHTML = data;
+      document.getElementById('body').appendChild(p);
+      setTimeout(() => {
+        element = document.getElementById('note');
+        element.style['-webkit-animation'] = 'noteout 2s';
+      }, 2000);
+      setTimeout(() => {
+        element = document.getElementById('note').remove();
+      }, 4000);
+  }
 }
-
-
-const notesignup = (data) =>{
-  p = document.createElement('p');
-  p.id = 'note';
-  p.innerHTML = data;
-  document.getElementById('body').appendChild(p);
-  setTimeout(() => {
-    element = document.getElementById('note');
-    element.style['-webkit-animation'] = 'noteout 2s';
-  }, 2000);
-  setTimeout(() => {
-    element = document.getElementById('note').remove();
-  }, 4000);
-}
-
 
 elem = document.getElementById('loginbtn').addEventListener('click', async (event) => {
       event.preventDefault();
@@ -59,9 +59,9 @@ elem = document.getElementById('loginbtn').addEventListener('click', async (even
       }else{
         let data = await res.json();
         try{
-            notelogin(data["description"]);
+            authMessage.notelogin(data["description"]);
         }catch{
-            notelogin(data["message"]);
+            authMessage.notelogin(data["message"]);
         }
       }
 });
@@ -87,10 +87,10 @@ elem = document.getElementById('signupbtn').addEventListener('click', async (eve
         if(res.status == 201){
             let data = await res.json();
             data = data["message"]+"&nbsp;log in to continue";
-            notesignup(data);
+            authMessage.notesignup(data);
         }else{
           let data = await res.json();
-          notesignup(data["message"]);
+          authMessage.notesignup(data["message"]);
         }
     }catch(err){
           console.log(err);

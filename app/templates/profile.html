@@ -3,20 +3,16 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../static/profile.js"></script>
     <title>Stack Overflow lite</title>
   </head>
-  <body onload="getMyQuestions();">
+  <body onload="profile.getMyQuestions();">
     <nav class="nav_bar">
       <ul>
         <li><a href="https://stackoverflowlite-beta.herokuapp.com/home">Home</a> </li>
         <li><a href="#">Profile</a> </li>
-        <li onclick="logOut();"><a href="#">Log out</a> </li>
-        <li>
-          <form class="search_form" action="index.html" method="post">
-            <input type="text" name="search" placeholder="search...">
-          </form>
-        </li>
+        <li onclick="globals.logOut();"><a href="#">Log out</a> </li>
       </ul>
     </nav>
     <div class="feed" id="feed">
@@ -30,7 +26,11 @@
         <h2>My Recent Questions</h2>
         <hr>
         <ul>
-          <li><a href="#"> Checkout this question story</a> </li>
+          <li>
+            <form class="search_form" action="index.html" method="post">
+              <input type="text" name="search" placeholder="search...">
+            </form>
+          </li>
           <li><a href="#"> Checkout this question story</a> </li>
           <li><a href="#"> Checkout this question story</a> </li>
           <li><a href="#"> Checkout this question story</a> </li>
@@ -46,32 +46,12 @@
       <div class="logo animated bounceInLeft">
         <img src="../static/img/logo.png" alt="">
       </div>
-      <div class="profile animated bounceInRight">
-        <img src="../static/img/avatar0.png" alt="avatart">
-      </div>
-      <div class="user_info">
-        <h3>John Doe</h3>
-        <ul>
-          <li><button type="submit" class="button">Questions 4</button></li>
-          <li><button type="submit" class="button">Answers 90</button></li>
-        </ul>
-      </div>
     </div>
   </body>
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <ul class="list-inline text-center">
-            <li class="list-inline-item">
-              <a href="https://www.github.com/MartinKaburu/StackOverflow-lite">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          </ul>
           <p>Copyright &copy; StackOverflow-lite 2018</p>
         </div>
       </div>

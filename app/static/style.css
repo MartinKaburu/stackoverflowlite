@@ -348,7 +348,7 @@ body{
   padding-bottom: 10px;
 }
 .nav_bar ul{
-  margin-left: 65%;
+  margin-left: 80%;
 }
 .nav_bar li{
   float:left;
@@ -398,13 +398,13 @@ body{
   right: 0;
   overflow-x: hidden;
   box-shadow: 3px 3px 5px 6px #ccc;
+  text-align: center;
 }
 
 .feed .side_bar a{
-  margin-left: -15%;
-  width: 150%;
+  margin:auto;
   display: block;
-  padding: 5px 10px 5px 60px;
+  padding: 5px 10px 5px 0;
   color: #0085a1;
 
 }
@@ -447,9 +447,6 @@ body{
   box-shadow: 3px 3px 5px 6px #ccc;
 }
 
-#one, #two, #three, #four {
-  display: none;
-}
 
 .feed .q_and_a button{
   display: inline;
@@ -565,10 +562,16 @@ body{
   padding-top: 20px;
 }
 .user_info{
-  right: 0;
-  top:40%;
+  height: 43%;
+  width: 20%;
   position: fixed;
-  margin-left: -3%;
+  z-index: 1;
+  top: 2%;
+  right: .5%;
+  overflow-x: hidden;
+  padding-top: 20px
+  right: 0;
+  text-align: center;
 }
 
 .user_info button{
@@ -580,15 +583,13 @@ body{
   margin-left: 0%;
 }
 
-.user_info ul{
-  margin-left: -5%;
-}
+
 .user_info li{
   display: inline;
 }
 .user_info h3{
-  margin-left: 43%;
-  padding-bottom: 2%;
+  margin:auto;
+  padding-bottom: 1%;
 }
 .container{
   margin-left: 40%;
@@ -605,14 +606,7 @@ body{
 }
 
 .profile{
-  height: 43%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  top: 2%;
-  right: .5%;
-  overflow-x: hidden;
-  padding-top: 20px;
+  ;
 }
 
 .col-lg-8{
@@ -725,4 +719,32 @@ body{
   overflow: hidden;
   box-shadow:0 0 5px black;
   -webkit-animation: notein 1s;
+}
+
+
+i.fa{
+  color: #0085a1;
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.5em 0.6em;
+
+}
+
+i.fa:hover{
+  background-color: #0085a1;
+  color: #ded9df;
+}
+
+i.fa:active{
+  font-size: 1.2em;
+}
+
+#deletebtn{
+  background-color: #A02121;
+}
+#deletebtn:hover{
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #A02121;
 }
