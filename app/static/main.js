@@ -213,8 +213,9 @@ const globals = {
           headers: head
         })
         let json = await response.json();
-        if(response.status == 200)
+        if(response.status == 200){
             document.getElementById('answer'+answerId.toString()).remove();
+        }
         message.notification(json["message"]);
     }
 }

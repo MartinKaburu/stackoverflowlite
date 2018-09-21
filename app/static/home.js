@@ -35,7 +35,7 @@ const home = {
         }
       }else if(response.status == 404){
         let json = await response.json()
-        notification(json["message"])
+        message.notification(json["message"])
       }else{
         window.location.replace('https://stackoverflowlite-beta.herokuapp.com/auth');
       }
