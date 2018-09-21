@@ -40,10 +40,7 @@ elem = document.getElementById('loginbtn').addEventListener('click', async (even
       let form = document.getElementById('login');
       let email = form.email.value;
       let password = form.password.value;
-      let frame = JSON.stringify({
-        "email": email,
-        "password": password,
-      })
+      let frame = JSON.stringify({email, password})
       let settings = {
           method: 'POST',
           headers: head,
@@ -78,11 +75,7 @@ elem = document.getElementById('signupbtn').addEventListener('click', async (eve
         let res = await fetch(url, {
           method: 'POST',
           headers: head,
-          body: JSON.stringify({
-            "username": username,
-            "email": email,
-            "password": password
-          })
+          body: JSON.stringify({username, email, password})
         })
         if(res.status == 201){
             let data = await res.json();

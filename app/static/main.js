@@ -148,9 +148,7 @@ const globals = {
         const response = await fetch(url, {
           method: 'PUT',
           headers: head,
-          body:JSON.stringify({
-            "content":content
-          })
+          body:JSON.stringify({content})
         });
         document.getElementById('pop_up').remove()
         let json = await response.json();
@@ -215,7 +213,7 @@ const globals = {
           headers: head
         })
         let json = await response.json();
-        if(response.status == 200);
+        if(response.status == 200)
             document.getElementById('answer'+answerId.toString()).remove();
         message.notification(json["message"]);
     }
