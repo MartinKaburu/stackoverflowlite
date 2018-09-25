@@ -5,9 +5,15 @@
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../static/home.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <title>Stack Overflow lite</title>
   </head>
   <body  onload="home.getQuestions();">
+    <div class="tile--css_animations__demo2" id="onloadEffect">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <nav class="nav_bar">
       <ul>
         <li><a href="#">Home</a> </li>
@@ -23,19 +29,12 @@
         </div>
       </div>
       <div class="side_bar animated bounceInRight">
-        <h1>Recent Activity</h1>
-        <hr>
         <ul>
           <li>
-            <form class="search_form" action="index.html" method="post">
-              <input type="text" name="search" placeholder="search...">
+            <form class="search_form">
+              <input type="text" name="search" id="searchInput" placeholder="search..."><button type="button" name="button" id="searchbtn">Search</button>
             </form>
           </li>
-          <li><a href="#"> Checkout this recent story</a> </li>
-          <li><a href="#"> Checkout this recent story</a> </li>
-          <li><a href="#"> Checkout this recent story</a> </li>
-          <li><a href="#"> Checkout this recent story</a> </li>
-          <li><a href="#"> Checkout this recent story</a> </li>
         </ul>
       </div>
       <form class="ask_question animated bounceInLeft" name="askQuestion">

@@ -1,6 +1,8 @@
 '''Module to render pages
 '''
-from flask import render_template, redirect, url_for
+import os
+
+from flask import render_template, redirect, url_for, send_from_directory
 from flask_jwt import jwt_required
 
 from . import APP
@@ -31,3 +33,9 @@ def getting_started():
     '''render the login/signup page
     '''
     return redirect(url_for('get_started'))
+
+
+@APP.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(APP.root_path, 'static'),
+                          'favicon.ico',mimetype='image/vnd.microsoft.icon')

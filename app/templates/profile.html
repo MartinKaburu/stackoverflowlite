@@ -8,6 +8,11 @@
     <title>Stack Overflow lite</title>
   </head>
   <body onload="profile.getMyQuestions();">
+    <div class="tile--css_animations__demo2" id="onloadEffect">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <nav class="nav_bar">
       <ul>
         <li><a href="https://stackoverflowlite-beta.herokuapp.com/home">Home</a> </li>
@@ -23,19 +28,12 @@
         </div>
       </div>
       <div class="side_bar animated bounceInRight">
-        <h2>My Recent Questions</h2>
-        <hr>
         <ul>
           <li>
-            <form class="search_form" action="index.html" method="post">
-              <input type="text" name="search" placeholder="search...">
+            <form class="search_form">
+              <input type="text" name="search" id="searchInput" placeholder="search..."><button type="button" name="button" id="searchbtn">Search</button>
             </form>
           </li>
-          <li><a href="#"> Checkout this question story</a> </li>
-          <li><a href="#"> Checkout this question story</a> </li>
-          <li><a href="#"> Checkout this question story</a> </li>
-          <li><a href="#"> Checkout this question story</a> </li>
-          <li><a href="#"> Checkout this question story</a> </li>
         </ul>
       </div>
       <form class="ask_question animated bounceInLeft" name='askQuestion'>

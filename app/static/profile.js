@@ -34,6 +34,9 @@ const profile = {
         node.className = "display_que"
         node.id = questionId.toString()+'this'
         node.innerHTML = div;
+        try{
+          document.getElementById('onloadEffect').remove();
+        }catch{}
         document.getElementById('mmm').appendChild(node);
       }
       let user_info = `
@@ -49,6 +52,9 @@ const profile = {
       node.innerHTML = user_info;
       document.getElementById('feed').appendChild(node)
     }else if(response.status == 404){
+      try{
+        document.getElementById('onloadEffect').remove();
+      }catch{}
       let json = await response.json()
       message.notification(json["message"])
     }

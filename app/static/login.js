@@ -37,6 +37,7 @@ const authMessage = {
 
 elem = document.getElementById('loginbtn').addEventListener('click', async (event) => {
       event.preventDefault();
+      authMessage.notelogin('working...');
       let form = document.getElementById('login');
       let email = form.email.value;
       let password = form.password.value;
@@ -66,6 +67,7 @@ elem = document.getElementById('loginbtn').addEventListener('click', async (even
 
 elem = document.getElementById('signupbtn').addEventListener('click', async (event) => {
     event.preventDefault();
+    authMessage.notesignup('working...');
     const signupForm = document.forms['signupForm'];
     let username = signupForm.username.value;
     let email = signupForm.email.value;

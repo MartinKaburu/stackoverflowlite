@@ -5,8 +5,8 @@ const home = {
         method: 'GET',
         headers: head
       });
+      json = await response.json();
       if(response.status == 200){
-        json = await response.json();
         let data = await json.QUESTIONS;
         for(question in data){
           content = data[question].content;
@@ -31,12 +31,19 @@ const home = {
           node.className = "display_que";
           node.id = id.toString()+'this';
           node.innerHTML = div;
+          try{
+            document.getElementById('onloadEffect').remove();
+          }catch{}
           document.getElementById('mmm').appendChild(node);
         }
       }else if(response.status == 404){
+        try{
+          document.getElementById('onloadEffect').remove();
+        }catch{}
         let json = await response.json()
         message.notification(json["message"])
       }else{
+        message.notification(json["description"])
         window.location.replace('https://stackoverflowlite-beta.herokuapp.com/auth');
       }
     },

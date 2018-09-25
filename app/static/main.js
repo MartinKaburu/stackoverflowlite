@@ -1,4 +1,4 @@
-//globals
+  //globals
 token = localStorage.getItem('token')
 
 head = new Headers({
@@ -218,6 +218,7 @@ const globals = {
         }
         message.notification(json["message"]);
     }
+
 }
 
 document.getElementById('askQue').addEventListener('click', async (event) => {
@@ -243,3 +244,55 @@ document.getElementById('askQue').addEventListener('click', async (event) => {
     }
     message.notification(json["message"]);
 });
+
+document.getElementById('searchbtn').addEventListener('click', async (event) =>{
+    event.preventDefault();
+    content = document.getElementById('searchInput').value;
+    settings = {
+      method: 'POST',
+      headers: head,
+      body: JSON.stringify({
+          'search':content
+      })
+    }
+    url = baseURL+'search'
+    const response = await fetch(url, settings);
+    json = await response.json();
+    if(response.status == 200){
+      json = json.RESULTS;
+      console.log(json);
+      // node = document.getElementById('mmm')
+      // children = node.childNodes;
+      // for(child in children){
+      //     console.log(node.childNodes[child].getAttribute('id'));
+      //     if('this' in node.childNodes[child].nodeName) node.remove(child);
+      //}
+      for(question in json){
+        content = json[question].content;
+        id = json[question].id;
+        user = json[question].username;
+        date = json[question].posted_on;
+        try{
+          //document.getElementById(id.toString()+'this').remove();
+        }catch{}
+        div = `
+          <p>
+            ${content}
+            <br>
+          </p>
+          <p style="font-style: italic;font-family:courier;color:grey;font-weight:bold;font-size:0.8em;margin-left:60%;">
+            Asked by ${user}<br>On ${date}
+          </p>
+          <button class="show_more" onclick="home.getAnswers(${id});">Answers</button>
+          <hr>
+        `
+        node = document.createElement('div');
+        node.className = "display_que";
+        node.id = id+'this';
+        node.innerHTML = div;
+        document.getElementById('mmm').appendChild(node);
+      }
+    }else{
+        message.notification(json['message']);
+    }
+})
