@@ -260,21 +260,22 @@ document.getElementById('searchbtn').addEventListener('click', async (event) =>{
     json = await response.json();
     if(response.status == 200){
       json = json.RESULTS;
-      console.log(json);
-      // node = document.getElementById('mmm')
-      // children = node.childNodes;
-      // for(child in children){
-      //     console.log(node.childNodes[child].getAttribute('id'));
-      //     if('this' in node.childNodes[child].nodeName) node.remove(child);
-      //}
+      displayNode = document.getElementById('mmm')
+      while (displayNode.hasChildNodes()) {
+          displayNode.removeChild(displayNode.lastChild);
+      }
+      let heading = `
+      <div class="head">
+        <h1>"${content}" search results<h1>
+        <hr>
+      </div>
+      `
+      displayNode.innerHTML = heading;
       for(question in json){
         content = json[question].content;
         id = json[question].id;
         user = json[question].username;
         date = json[question].posted_on;
-        try{
-          //document.getElementById(id.toString()+'this').remove();
-        }catch{}
         div = `
           <p>
             ${content}
@@ -292,6 +293,10 @@ document.getElementById('searchbtn').addEventListener('click', async (event) =>{
         node.innerHTML = div;
         document.getElementById('mmm').appendChild(node);
       }
+      let footer = `
+        <button class="show_more" onclick="window.location.reload();"> Back </button>
+      `
+      displayNode.innerHTML += footer;
     }else{
         message.notification(json['message']);
     }

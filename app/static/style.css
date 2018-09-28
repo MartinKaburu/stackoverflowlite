@@ -21,7 +21,7 @@ li {
   }
   .left {
     left: 0;
-    background-color: #0085a1;
+    background-color: #00798C;
   }
   .right {
     right: 0;
@@ -61,7 +61,7 @@ li {
   }
 
   .login .button:hover{
-    background-color:#0085a1;
+    background-color:#00798C;
     color: white;
     cursor: pointer;
    -webkit-transition: background-color 2s ease-out;
@@ -72,7 +72,7 @@ li {
 
   .signup .button:hover{
     background-color: #ded9df;
-    color: #0085a1;
+    color: #00798C;
     cursor: pointer;
    -webkit-transition: background-color 2s ease-out, color 2s ease-out;
    -moz-transition: background-color  2s ease-out,color 2s ease-out;
@@ -131,7 +131,7 @@ li {
   }
 
   .login input{
-    color: #0085a1;
+    color: #00798C;
     background-color: #ded9df;
     border-color: transparent transparent #333 transparent;
     border-width: 1px;
@@ -142,7 +142,7 @@ li {
     padding-top: 50px;
     -moz-box-shadow:    3px 3px 5px 6px #005b96;
     -webkit-box-shadow: 3px 3px 5px 6px #005b96;
-    background-color: #0085a1;
+    background-color: #00798C;
     -webkit-transition:opacity 1s ease-in;
     height: 70%;
     width: 30%;
@@ -153,7 +153,7 @@ li {
   }
 
   .signup input{
-    background-color: #0085a1;
+    background-color: #00798C;
     border-color: transparent transparent #333 transparent;
     border-width: 1px;
   }
@@ -166,7 +166,7 @@ li {
     margin-top: 100px;
     margin-bottom: -20%;
     display: inline;
-    color: #0085a1;
+    color: #00798C;
     font-size: 14;
     font-family: Arial, Helvetica;
 
@@ -182,7 +182,7 @@ li {
   }
   .left {
     top: 0%;
-    background-color: #0085a1;
+    background-color: #00798C;
   }
   .right {
     bottom: 0%;
@@ -217,7 +217,7 @@ li {
   }
 
   .login .button:hover{
-    background-color:#0085a1;
+    background-color:#00798C;
     color: #fff;
     cursor: pointer;
    -webkit-transition: background-color 2s ease-out;
@@ -227,7 +227,7 @@ li {
   }
 
   .signup .button:hover{
-    color: #0085a1;
+    color: #00798C;
     background-color: #ded9df;
     cursor: pointer;
    -webkit-transition: background-color 2s ease-out;
@@ -281,7 +281,7 @@ li {
   }
 
   .login input{
-    color: #0085a1;
+    color: #00798C;
     background-color: #ded9df;
     border-color: transparent transparent #333 transparent;
     border-width: 1px;
@@ -293,7 +293,7 @@ li {
     -moz-box-shadow:    3px 3px 5px 6px #005b96;
     -webkit-box-shadow: 3px 3px 5px 6px #005b96;
     box-shadow:         3px 3px 5px 6px #005b96;
-    background-color: #0085a1;
+    background-color: #00798C;
     -webkit-transition:opacity 1s ease-in;
   }
 
@@ -302,7 +302,7 @@ li {
   }
 
   .signup input{
-    background-color: #0085a1;
+    background-color: #00798C;
     border-color: transparent transparent #333 transparent;
     border-width: 1px;
   }
@@ -324,7 +324,7 @@ li {
     margin-top: 100px;
     margin-bottom: -20%;
     display: inline;
-    color: #0085a1;
+    color: #00798C;
     font-size: 14;
     font-family: Arial, Helvetica;
 
@@ -340,7 +340,7 @@ body{
   z-index: 999;
   width: 100%;
   position: fixed;
-  background-color: #0085a1;
+  background-color: #30323D;
   height: 55px;
   border: none;
   margin-left: -10px;
@@ -367,11 +367,15 @@ body{
   border: none;
 }
 .nav_bar a:hover{
-  color: #000;
+  color: #0072BB;
+}
+
+.nav_bar a:active{
+  font-size: 1.2em;
 }
 
 .nav_bar input{
-  background-color: #0085a1;
+  background-color: #00798C;
   color: #ded9df;
   padding: 5px;
   border-color: transparent transparent #ded9df transparent;
@@ -389,51 +393,52 @@ body{
   padding-top: 5%;
 }
 
-.feed .side_bar{
-  background-color: #fff;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
-  bottom: 10%;
-  right: 0;
-  overflow-x: hidden;
-  box-shadow: 3px 3px 5px 6px #ccc;
-  text-align: center;
+.feed .head h1{
+  display: inline;
 }
 
-.feed .side_bar form{
+.feed .head hr{
+  margin-left: -1%;
+  width: 100%;
+}
+
+.feed .head form{
+  position: absolute;
   display: inline;
+  background-color: none;
+  margin-left: 10%;
+  width: 15%;
+  overflow-x: hidden;
+  text-align: center;
 }
 
 
 #searchbtn{
-  background-color: #0085a1;
+  background-color: #00798C;
   width:90%;
   margin-left: -10%;
   padding: 5px;
 
 }
 
-.feed .side_bar a{
-  margin:auto;
-  display: block;
-  padding: 5px 10px 5px 0;
-  color: #0085a1;
-
-}
-.feed .side_bar li{
-  margin: 0%;
-  padding: 0;
+#searchbtn:hover{
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #207cca;
 }
 
 
 .feed .q_and_a{
-  background-color: #fff;
-  width: 40%;
-  padding: 2%;
-  margin-left: 30%;
-  box-shadow: 3px 3px 5px 6px #ccc;
+  background-color: #EFF0D1;
+  width: 50%;
+  height: 85%;
+  margin-top: -2%;
+  padding: 5%;
   padding-top: 10px;
+  padding-bottom: 5px;
+  margin-left: 40%;
+  box-shadow: 3px 3px 5px 6px #ccc;
+
 }
 
 .feed .recent_questions .q_and_a p{
@@ -449,7 +454,7 @@ body{
   color: #000;
 }
 .feed .recent_questions .q_and_a a:hover{
-  color:#0085a1;
+  color:#00798C;
 }
 
 .feed .q_and_a:hover{
@@ -459,7 +464,7 @@ body{
 
 .feed .q_and_a button{
   display: inline;
-  background-color: #0085a1;
+  background-color: #00798C;
   color: #fff;
   padding: 5px 10px;
   border: none;
@@ -471,13 +476,14 @@ body{
 
 .feed button:hover{
   color: #000;
-  background-color: #fff;
+  background-color: #EBEBEB;
   border: 2px solid #207cca;
 }
 
 .feed  hr{
-  margin-left: 3%;
-  color: #0085a1;
+  margin-left: -1%;
+  background-color: #00798C;
+  width: 90%;
 }
 .feed .q_and_a .my_answer textarea{
   margin: 0px 5px 5px 5px;
@@ -497,14 +503,14 @@ body{
 }
 
 .feed .q_and_a .my_answer a:hover{
-  color:#0085a1;
+  color:#00798C;
 }
 .feed .ask_question button{
   z-index: 10000;
   display: block;
   margin-left: 5%;
   width: 85%;
-  background-color: #0085a1;
+  background-color: #00798C;
   color: #fff;
   padding: 10px 15px;
   border: none;
@@ -512,11 +518,11 @@ body{
 }
 .feed .ask_question button:hover{
   color: #000;
-  background-color: #fff;
+  background-color: #EBEBEB;
   border: 2px solid #207cca;
 }
 .feed h1, h2{
-  color: #0085a1;
+  color: #00798C;
   text-align: left;
   font-family: Arial, Helvetica;
   font-weight: bold;
@@ -540,7 +546,7 @@ body{
 }
 
 .feed .ask_question h3{
-  color: #0085a1;
+  color: #00798C;
   font-family: Arial, Helvetica;
   font-weight: bold;
   line-height: 1.9em;
@@ -552,7 +558,7 @@ body{
 .feed .ask_question textarea{
   padding: 10px;
   color: #000;
-  background-color: #fff;
+  background-color: #EFF0D1;
   margin-top: 0px;
   width: 85%;
   height: 55%;
@@ -561,10 +567,7 @@ body{
   box-shadow: 3px -5px 5px 6px #ccc;
 }
 .feed .logo{
-  height: 43%;
-  width: 20%;
-  position: fixed;
-  z-index: 1;
+  position: absolute;
   top: 5%;
   left: .5%;
   overflow-x: hidden;
@@ -585,7 +588,7 @@ body{
 
 .user_info button{
   display: inline;
-  background-color: #0085a1;
+  background-color: #00798C;
   color: #fff;
   padding: 5px 10px;
   border: none;
@@ -601,22 +604,12 @@ body{
   padding-bottom: 1%;
 }
 .container{
+  position: static;
   margin-left: 40%;
   bottom: 0;
 }
-.container li{
-  color: #0085a1;
-  margin-left: 8%;
-  bottom: 0;
-}
 
-.fa-circle{
-  color: black;
-}
 
-.profile{
-  ;
-}
 
 .col-lg-8{
   top: 0;
@@ -675,7 +668,7 @@ body{
   display: inline;
   z-index: 10000;
   width: 10%;
-  background-color: #0085a1;
+  background-color: #00798C;
   color: #fff;
   padding: 10px 15px;
   border: none;
@@ -722,7 +715,7 @@ body{
   width: 50%;
   left: 50%;
   top: -17;
-  background: #0085a1;
+  background: #00798C;
   line-height: 2.5;
   text-align: center;
   overflow: hidden;
@@ -732,7 +725,7 @@ body{
 
 
 i.fa{
-  color: #0085a1;
+  color: #00798C;
   display: inline-block;
   border-radius: 60px;
   box-shadow: 0px 0px 2px #888;
@@ -740,10 +733,21 @@ i.fa{
 
 }
 
+i.fa-trash{
+  color: #A02121;
+}
+
+
 i.fa:hover{
-  background-color: #0085a1;
+  background-color: #00798C;
   color: #ded9df;
 }
+
+i.fa-trash:hover{
+  background-color: #A02121;
+  color: #ded9df;
+}
+
 
 i.fa:active{
   font-size: 1.2em;
@@ -781,11 +785,11 @@ i.fa:active{
     width: 100%;
 }
 .tile--css_animations__demo2 div:nth-of-type(odd) {
-    background: #0085a1;
+    background: #00798C;
 }
 .tile--css_animations__demo2 div:nth-of-type(even) {
     background: white;
-    border: 2px solid #0085a1;
+    border: 2px solid #00798C;
 }
 .tile--css_animations__demo2 div:nth-of-type(3) {
     height: 10px;

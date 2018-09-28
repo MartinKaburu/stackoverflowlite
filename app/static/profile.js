@@ -39,18 +39,14 @@ const profile = {
         }catch{}
         document.getElementById('mmm').appendChild(node);
       }
-      let user_info = `
-        <img src="../static/img/avatar0.png" alt="avatart">
-        <h3>${user}</h3>
-        <ul>
-          <li><button class="button">Questions ${question_number}</button></li>
-          <li><button class="button">Answers 90</button></li>
-        </ul>
-      `
-      node = document.createElement('div')
-      node.className = 'user_info'
-      node.innerHTML = user_info;
-      document.getElementById('feed').appendChild(node)
+      // let user_info = `
+      //   <img src="../static/img/avatar0.png" alt="avatart">
+      //   <h3>${user}</h3>
+      // `
+      // node = document.createElement('div')
+      // node.className = 'user_info'
+      // node.innerHTML = user_info;
+      // document.getElementById('feed').appendChild(node)
     }else if(response.status == 404){
       try{
         document.getElementById('onloadEffect').remove();
