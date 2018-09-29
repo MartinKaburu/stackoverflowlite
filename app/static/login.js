@@ -5,39 +5,69 @@ let head = new Headers({
 let baseURL = 'https://kaburu-stackoverflowlite-cp3.herokuapp.com/api/v1/'
 
 const authMessage = {
-  notelogin: (data) =>{
-      p = document.createElement('p');
-      p.id = 'notel';
-      p.innerHTML = data;
-      document.getElementById('body').appendChild(p);
-      setTimeout(() => {
-        element = document.getElementById('notel');
-        element.style['-webkit-animation'] = 'noteout 2s';
-      }, 2000);
-      setTimeout(() => {
-        element = document.getElementById('notel').remove();
-      }, 4000);
+  notelogin: (type, data) =>{
+      if(type == 'success'){
+        p = document.createElement('p');
+        p.id = 'notel-a';
+        p.innerHTML = data;
+        document.getElementById('body').appendChild(p);
+        setTimeout(() => {
+          element = document.getElementById('notel-a');
+          element.style['-webkit-animation'] = 'noteout 2s';
+        }, 2000);
+        setTimeout(() => {
+          element = document.getElementById('notel-a').remove();
+        }, 4000);
+      }
+      else{
+        p = document.createElement('p');
+        p.id = 'notel-f';
+        p.innerHTML = data;
+        document.getElementById('body').appendChild(p);
+        setTimeout(() => {
+          element = document.getElementById('notel-f');
+          element.style['-webkit-animation'] = 'noteout 2s';
+        }, 2000);
+        setTimeout(() => {
+          element = document.getElementById('notel-f').remove();
+        }, 4000);
+      }
   },
 
 
-  notesignup: (data) =>{
-      p = document.createElement('p');
-      p.id = 'note';
-      p.innerHTML = data;
-      document.getElementById('body').appendChild(p);
-      setTimeout(() => {
-        element = document.getElementById('note');
-        element.style['-webkit-animation'] = 'noteout 2s';
-      }, 2000);
-      setTimeout(() => {
-        element = document.getElementById('note').remove();
-      }, 4000);
+  notesignup: (type, data) =>{
+      if(type == 'success'){
+        p = document.createElement('p');
+        p.id = 'note-a';
+        p.innerHTML = data;
+        document.getElementById('body').appendChild(p);
+        setTimeout(() => {
+          element = document.getElementById('note-a');
+          element.style['-webkit-animation'] = 'noteout 2s';
+        }, 2000);
+        setTimeout(() => {
+          element = document.getElementById('note-a').remove();
+        }, 4000);
+      }
+      else {
+        p = document.createElement('p');
+        p.id = 'note-f';
+        p.innerHTML = data;
+        document.getElementById('body').appendChild(p);
+        setTimeout(() => {
+          element = document.getElementById('note-f');
+          element.style['-webkit-animation'] = 'noteout 2s';
+        }, 2000);
+        setTimeout(() => {
+          element = document.getElementById('note-f').remove();
+        }, 4000);
+      }
   }
 }
 
 elem = document.getElementById('loginbtn').addEventListener('click', async (event) => {
       event.preventDefault();
-      authMessage.notelogin('working...');
+      authMessage.notelogin('success', 'working...');
       let form = document.getElementById('login');
       let email = form.email.value;
       let password = form.password.value;
@@ -50,6 +80,7 @@ elem = document.getElementById('loginbtn').addEventListener('click', async (even
       let url = baseURL+'auth/login';
       const res = await fetch(url, settings);
       if(res.status == 200){
+          authMessage.notelogin('success', 'logging in...')
           let json = await res.json();
           let token = json['access_token'];
           localStorage.setItem('token', token);
@@ -57,9 +88,9 @@ elem = document.getElementById('loginbtn').addEventListener('click', async (even
       }else{
         let data = await res.json();
         try{
-            authMessage.notelogin(data["description"]);
+            authMessage.notelogin('fail', data["description"]);
         }catch{
-            authMessage.notelogin(data["message"]);
+            authMessage.notelogin('fail', data["message"]);
         }
       }
 });
@@ -67,7 +98,7 @@ elem = document.getElementById('loginbtn').addEventListener('click', async (even
 
 elem = document.getElementById('signupbtn').addEventListener('click', async (event) => {
     event.preventDefault();
-    authMessage.notesignup('working...');
+    authMessage.notesignup('success', 'working...');
     const signupForm = document.forms['signupForm'];
     let username = signupForm.username.value;
     let email = signupForm.email.value;
@@ -82,10 +113,10 @@ elem = document.getElementById('signupbtn').addEventListener('click', async (eve
         if(res.status == 201){
             let data = await res.json();
             data = data["message"]+"&nbsp;log in to continue";
-            authMessage.notesignup(data);
+            authMessage.notesignup('success', data);
         }else{
           let data = await res.json();
-          authMessage.notesignup(data["message"]);
+          authMessage.notesignup('fail', data["message"]);
         }
     }catch(err){
           console.log(err);

@@ -3,7 +3,6 @@
 import os
 
 from flask import render_template, redirect, url_for, send_from_directory
-from flask_jwt import jwt_required
 
 from . import APP
 

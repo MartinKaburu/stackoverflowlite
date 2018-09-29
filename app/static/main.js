@@ -15,7 +15,9 @@ const message = {
       try{
           element = document.getElementById('notification')
           element.remove()
-      }catch{
+      }catch{}
+      if (message == null){
+          window.location.replace(baseURL+'auth');
       }
       html = `
       <p>&times; ${message} &times;</p>
@@ -68,7 +70,7 @@ const message = {
 
   confirmDeleteAnswer: (answerId, questionId) =>{
     let html = `
-    <div style="background-color: white;color: #000;width: 100%;padding: 10px;border: none;margin: auto;margin-top: 20%;">
+    <div style="background-color: white;color: #000;width: 20%;padding: 10px;border: none;margin: auto;margin-top: 20%;">
     <p>Are you sure you want to delete this answer?</p>
     <button id="deletebtn" type="button" onclick="globals.deleteAnswer(${answerId}, ${questionId});">Delete</button><button type="button" onclick="document.getElementById('pop_up').remove()">Cancel</button>
     </div>
@@ -83,7 +85,7 @@ const message = {
 
   confirmDeleteQuestion: (questionId) =>{
     let html = `
-    <div style="background-color: white;color: #000;width: 100%;padding: 10px;border: none;margin: auto;margin-top: 20%;">
+    <div style="background-color: white;color: #000;width: 20%;padding: 10px;border: none;margin: auto;margin-top: 20%;">
     <p>Are you sure you want to delete this Question?</p>
     <button id="deletebtn" type="button" onclick="profile.deleteQuestion(${questionId});">Delete</button><button type="button" onclick="document.getElementById('pop_up').remove()">Cancel</button>
     </div>
