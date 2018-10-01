@@ -603,22 +603,6 @@ body{
   padding-bottom: 1%;
 }
 
-footer{
-  position: relative;
-  bottom: 2%;
-}
-.container{
-  position: absolute;
-  margin-left: 40%;
-  bottom: 2%;
-}
-
-
-
-.col-lg-8{
-  top: 0;
-}
-
 @keyframes slidein {
     from {
       margin-left: -20%;
