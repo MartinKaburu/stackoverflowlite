@@ -475,7 +475,7 @@ body{
 
 .feed button:hover{
   color: #000;
-  background-color: #EBEBEB;
+  background-color: #fff;
   border: 2px solid #207cca;
 }
 
@@ -517,7 +517,7 @@ body{
 }
 .feed .ask_question button:hover{
   color: #000;
-  background-color: #EBEBEB;
+  background-color: #fff;
   border: 2px solid #207cca;
 }
 .feed h1, h2{
