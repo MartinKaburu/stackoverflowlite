@@ -12,6 +12,8 @@ a {
 li {
   display: inline;
 }
+
+
 @media (min-width:700px) {
   .left, .right {
     position: fixed;
@@ -23,7 +25,10 @@ li {
     left: 0;
     background-color: #00798C;
   }
+
+  
   .right {
+    z-index: 1;
     right: 0;
     background-color: #ded9df;
   }
@@ -45,7 +50,8 @@ li {
     width: 80%;
   }
 
-.form  .button{
+.form.signup  .button{
+    z-index: 9999999999999;
     display: inline;
     background-color: #333;
     color: #fff;
@@ -56,11 +62,20 @@ li {
 
   }
 
-  .login .button{
-    margin-top: -40px;
-  }
+  .form.login  .button{
+      display: inline;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 15px;
+      margin-top: -20%;
+      margin-left: 80%;
+      border: none;
 
-  .login button:hover{
+    }
+
+
+
+  .login .button:hover{
     background-color:#00798C;
     color: white;
     cursor: pointer;
@@ -80,9 +95,7 @@ li {
    transition: background-color 2s ease-out, color 2s ease-out;
   }
 
-  .signup .button{
-    margin-top: 40px;
-  }
+
   .form{
     padding: 100px;
     position: fixed;
@@ -100,9 +113,11 @@ li {
     margin-bottom: 20%;
   }
 
-  .form input[type="email"], input[type="text"], input[type="password"], label{
+
+  .form input[type="email"], input[type="text"], input[type="password"]{
     display: block;
     padding: 5px;
+    padding-right: 0;
     font-size: 14;
     border-radius: 3px;
     font-style: italic;
@@ -111,6 +126,14 @@ li {
 
   }
 
+.form ul{
+    display: inline;
+    margin-left: -15%;
+}
+
+.form li{
+    padding-left: 0;
+}
 
 
   .login{
@@ -127,8 +150,9 @@ li {
   }
 
     .login:hover, .login:active{
-      opacity: 5;
+      opacity: 1;
   }
+
 
   .login input{
     color: #00798C;
@@ -136,11 +160,13 @@ li {
     border-color: transparent transparent #333 transparent;
     border-width: 1px;
   }
+
+
   .signup{
     opacity: 0.5;
     margin-top: 90px;
     padding-top: 50px;
-    -moz-box-shadow:    3px 3px 5px 6px #005b96;
+    -moz-box-shadow: 3px 3px 5px 6px #005b96;
     -webkit-box-shadow: 3px 3px 5px 6px #005b96;
     background-color: #00798C;
     -webkit-transition:opacity 1s ease-in;
@@ -158,13 +184,14 @@ li {
     border-width: 1px;
   }
 
+
   .field-wrap{
     padding-top: 5px;
   }
-  .field-wrap a{
+
+
+  .form a{
     text-decoration: none;
-    margin-top: 100px;
-    margin-bottom: -20%;
     display: inline;
     color: #00798C;
     font-size: 14;
@@ -245,6 +272,7 @@ li {
     box-sizing: border-box;
     border-radius: 5px
   }
+
 
   .form input[type="checkbox"]{
     display: inline;
@@ -469,6 +497,7 @@ body{
   border: none;
   margin-left: 0%;
 }
+
 .feed .q_and_a .my_answer ul{
   margin-left: -8%;
 }
@@ -484,6 +513,8 @@ body{
   background-color: #00798C;
   width: 90%;
 }
+
+
 .feed .q_and_a .my_answer textarea{
   margin: 0px 5px 5px 5px;
   width: 85%;
@@ -504,6 +535,8 @@ body{
 .feed .q_and_a .my_answer a:hover{
   color:#00798C;
 }
+
+
 .feed .ask_question button{
   z-index: 10000;
   display: block;
@@ -513,13 +546,16 @@ body{
   color: #fff;
   padding: 10px 15px;
   border: none;
-  /*margin-left: 63%;*/
 }
+
+
 .feed .ask_question button:hover{
   color: #000;
   background-color: #fff;
   border: 2px solid #207cca;
 }
+
+
 .feed h1, h2{
   color: #00798C;
   text-align: left;
