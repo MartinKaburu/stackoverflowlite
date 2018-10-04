@@ -142,6 +142,21 @@ const vote = {
 
 
 const globals = {
+    showMenu: async => {
+        let menu = `
+          <a href="#">Home</a>
+          <a href="https://stackoverflowlite-beta.herokuapp.com/profile">Profile</a>
+          <a href="#" onclick="globals.logOut();">Log out</a>
+        `
+        let smallMenu = document.getElementById('smallMenu');
+        let ul = document.createElement('div');
+        ul.className = 'menu-content';
+        ul.id = 'menu-content';
+        ul.innerHTML = menu;
+        smallMenu.appendChild(ul);
+    },
+
+
     submitEdit: async (questionId, answerId) => {
         let element = document.getElementById('txt'+answerId.toString())
         let content = element.value;
@@ -303,3 +318,7 @@ document.getElementById('searchbtn').addEventListener('click', async (event) =>{
         message.notification(json['message']);
     }
 })
+
+document.getElementById('feed').onclick = () => {
+    document.getElementById('menu-content').remove();
+}

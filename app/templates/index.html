@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="../static/home.js"></script>
@@ -15,11 +16,14 @@
       <div></div>
     </div>
     <nav class="nav_bar">
-      <ul>
-        <li><a href="#">Home</a> </li>
-        <li><a href="https://stackoverflowlite-beta.herokuapp.com/profile">Profile</a></li>
-        <li onclick="globals.logOut();"><a href="#">Log out</a></li>
-      </ul>
+      <div class="small-menu" id='smallMenu' onclick="globals.showMenu();"></div>
+      <div class="large-menu">
+        <ul>
+          <li><a href="#">Home</a> </li>
+          <li><a href="https://stackoverflowlite-beta.herokuapp.com/profile">Profile</a></li>
+          <li onclick="globals.logOut();"><a href="#">Log out</a></li>
+        </ul>
+      </div>
     </nav>
     <div class="feed" id="feed">
       <div class="recent_questions animated bounce">
