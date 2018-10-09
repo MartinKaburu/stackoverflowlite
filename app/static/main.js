@@ -313,7 +313,7 @@ document.getElementById('searchbtn').addEventListener('click', async (event) =>{
       let footer = `
         <button class="show_more" onclick="window.location.reload();"> Back </button>
       `
-      displayNode.innerHTML += footer;
+      displayNode.prepend(footer);
     }else{
         message.notification(json['message']);
     }
