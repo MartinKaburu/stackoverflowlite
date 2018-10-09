@@ -312,7 +312,7 @@ document.getElementById('searchbtn').addEventListener('click', async (event) =>{
       }
       let button = document.createElement('button');
       button.className = 'show_more';
-      button.onclick = 'window.location.reload();'
+      button.onclick = () => {window.location.reload();}
       let footer = `
         Back
       `
