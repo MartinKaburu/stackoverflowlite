@@ -324,5 +324,7 @@ document.getElementById('searchbtn').addEventListener('click', async (event) =>{
 })
 
 document.getElementById('feed').onclick = () => {
-    document.getElementById('menu-content').remove();
+    try{
+      document.getElementById('menu-content').remove();
+    }catch{}
 }
