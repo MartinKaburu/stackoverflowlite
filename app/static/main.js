@@ -310,10 +310,14 @@ document.getElementById('searchbtn').addEventListener('click', async (event) =>{
         node.innerHTML = div;
         document.getElementById('mmm').appendChild(node);
       }
+      let button = document.createElement('button');
+      button.className = 'show_more';
+      button.onclick = window.location.reload();
       let footer = `
-        <button class="show_more" onclick="window.location.reload();"> Back </button>
+        Back
       `
-      displayNode.prepend(footer);
+      button.innerHTML = footer;
+      displayNode.prepend(button);
     }else{
         message.notification(json['message']);
     }
